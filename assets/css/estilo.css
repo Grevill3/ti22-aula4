@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    max-width: 1600px;
+}
+
+img{
+    width: 20%;
+    text-align: center;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(182, 182, 182);
+}
+
+header{
+    width: 100%;
+    text-align: center;
+    background-color: rgb(182, 182, 182);
+}
+
+#imagem{
+    text-align: center;
+}
+
+#data{
+    text-align: right;
+}
+
+#ti{
+    text-align: center;
+}
+
+
+
