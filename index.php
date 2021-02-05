@@ -1,3 +1,5 @@
+<!-- Código para definir a região da data utilizada -->
+<?php date_default_timezone_set('america/sao_paulo');?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,66 +21,44 @@
             <h2>Senac</h2>
         </header>
         <section id="imagem">
-            <img src="assets/imagem/login2.webp" alt="">
+            <img src="assets/imagem/login.webp" alt="">
         </section>
 
         <section>
             <!-- Formulario -->
-            <form>
-                <div class="form-row align-items-center" id="name">
-                  <div class="col-auto">
-                    <label class="sr-only" for="inlineFormInput">Name</label>
-                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Jane Doe">
-                  </div>
-
-                  <div class="col-auto">
-                    <label class="sr-only" for="inlineFormInputGroup">Username</label>
-                    <div class="input-group mb-2">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">@</div>
-                      </div>
-                      <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+          <div class="row">
+            <!-- primeira coluna -->
+            <div class="col-3"></div>
+            <!-- segunda coluna -->
+            <div class="col-6">
+            <form method="post" action="valida_login.php">
+                <div class="form-col align-items-center">
+                    <div class="col-auto">
+                        <input type="text" class="form-control mb-3"  placeholder="Usuário" name="usuario"
+                        maxlength="10">
                     </div>
-                  </div>
 
-                  <div class="col-auto">
-                    <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-                      <label class="form-check-label" for="autoSizingCheck">
-                        Remember me
-                      </label>
+                    <div class="col-auto">
+                        <div class="input-group mb-3">
+                          <input type="password" class="form-control" placeholder="Senha" name="senha" minlength="4" maxlength="8">
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
-                  </div>
+                    <div class="row">
+                        <button type="submit" class="btn btn-primary ml-3" title="Entrar">Logar</button>
+
+                        <a href="" class="btn btn-success ml-2">Cadastre-se</a>
+                        <a href="" class="btn btn-dark ml-2">Esqueci a senha</a>
+                        <button type="reset" class="btn btn-danger ml-2" title="Remove as informações digitadas">Apagar</button>
+                    </div>
                 </div>
-              </form>
+            </form>
+            </div>
+          </div>
               </section>
-
-        <footer>
-        <div class="row">
-
-          <div class="col-4">
-            <p>
-            Lapa Tito
-            </p>
-         </div>
-
-          <div class="col-4">
-            <p id="ti">
-            &copy;TI22
-            </p>
-          </div>
-
-          <div class="col-4">
-            <p id="data">
-            <?php echo date("d/m/y"); ?>
-            </p>
-          </div>
-
-        </div>
-        </footer>
+      <?php
+      include "footer.php";
+      ?>
+        
     </main>
 
 
