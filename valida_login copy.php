@@ -8,7 +8,7 @@
 
     $hashsenha = trim(password_hash($senha, PASSWORD_DEFAULT));
     
-    $sql = "SELECT * FROM tbl_usuarios WHERE usuario='$usuario' AND senha='$senha'";
+    $sql = "SELECT senha FROM tbl_usuarios WHERE usuario='$usuario'";
 
     include_once "conexao.php";
 
@@ -18,12 +18,11 @@
     //verificando se encontrou o usuario cadastrado na base de dados
     if ($campo=mysqli_fetch_array($resultado))
     {
-        //armazenar o nome do usuario numa variável de sessão
-        // $_SESSION; nome da sessão
-        session_start();
-        //vamos armazenar o conteudo que esta na variavel $campo na var sessão
-        $_SESSION['nome']= $campo['nome'];
-
+        //encontrou um usuario cadastrado
+        //caso tenha encontrado vamos comparar as senhas
+        if ($campo['senha']==password_verify($senha, $hashsenha)){
+            //a senha está correta
+            //usuário está com autorização para entrar
             ?>
             <script>
             alert("Usuário logado");
@@ -34,20 +33,20 @@
         else{
             ?>
             <script>
-                alert("Usuário não cadastrado");
-                window.location.href="index.php";
+            alert("A senha não confere com a cadastrada");
+            window.location.href="index.php";
             </script>
             <?php
 
         }
-    
-    // else{
-    //     ?>
-            <script>
-    //          alert("Usuário não cadastrado");
-    //      </script>
+    }
+    else{
+        ?>
+        <script>
+        alert("Usuário não cadastrado");
+        </script>
     <?php
-    
+    }
     ?>
     
 
