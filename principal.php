@@ -2,7 +2,7 @@
 
 session_start();
 
-echo $_SESSION['nome']."<br>";
+echo "<h1>".$_SESSION['nome']."<h1>"."<br>";
 
 echo "<h1>Estamos logados</h1>";
 
