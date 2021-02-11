@@ -2,10 +2,10 @@
 //comando que utiliza 4 informações
 $servidor = "localhost";
 $usuario = "root";
-$senha = "root";
+$senhabanco = "root";
 $bancodados = "db_clientes";
 
-$conn = mysqli_connect($servidor, $usuario, $senha, $bancodados);
+$conn = mysqli_connect($servidor, $usuario, $senhabanco, $bancodados);
 
 //checa conexão
 if  (mysqli_connect_errno()){

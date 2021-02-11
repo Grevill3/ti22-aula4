@@ -6,9 +6,8 @@
     $usuario=$_POST['usuario'];
     $senha=$_POST['senha'];
 
-    $hashsenha = trim(password_hash($senha, PASSWORD_DEFAULT));
     
-    $sql = "SELECT * FROM tbl_usuarios WHERE usuario='$usuario' AND senha='$senha'";
+    $sql = "SELECT * FROM tbl_usuarios WHERE usuario='$usuario'";
 
     include_once "conexao.php";
 
@@ -18,38 +17,41 @@
     //verificando se encontrou o usuario cadastrado na base de dados
     if ($campo=mysqli_fetch_array($resultado))
     {
-        //armazenar o nome do usuario numa variável de sessão
-        // $_SESSION; nome da sessão
-        session_start();
-        //vamos armazenar o conteudo que esta na variavel $campo na var sessão
-        $_SESSION['nome']= $campo['nome'];
-
-            ?>
-            <script>
-            alert("Usuário logado");
-            window.location.href="principal.php";
-            </script>
-            <?php
-        }
-        else{
-            ?>
-            <script>
-                alert("Usuário não cadastrado");
-                window.location.href="index.php";
-            </script>
-            <?php
-
-        }
+        if (password_verify($senha, $campo['senha'])) {
+  
+            //armazenar o nome do usuário numa variável de sessão
+            //inicializar a sessão
+            // $_SESSION nome da sessão
+            session_start();
+            // vamos armazenar o conteúdo que está na variável $campo na variável de sessão
+            $_SESSION['nome']= $campo['nome']; 
     
-    // else{
-    //     ?>
-            <script>
-    //          alert("Usuário não cadastrado");
-    //      </script>
+           ?>
+            <script>  
+              window.location.href="principal.php";
+            </script>
     <?php
     
-    ?>
+          } 
+          else 
+          {
     
-
-
-?>
+        ?>
+            <script>  
+              alert ("Senha não confere!");
+              window.location.href="index.php";
+            </script>
+    
+              <?php
+    
+            }
+        }
+        else {
+          ?>
+          <script>  
+          alert ("Usuário não cadastrado!");
+          window.location.href="index.php";
+        </script>
+        <?php
+        }
+        ?>
