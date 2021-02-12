@@ -17,7 +17,8 @@
     //verificando se encontrou o usuario cadastrado na base de dados
     if ($campo=mysqli_fetch_array($resultado))
     {
-        if (password_verify($senha, $campo['senha'])) {
+        if (password_verify($senha, $campo['senha'])) 
+        {
   
             //armazenar o nome do usuário numa variável de sessão
             //inicializar a sessão

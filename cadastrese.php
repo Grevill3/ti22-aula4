@@ -84,7 +84,7 @@
                         </svg></div>
                       </div>
                       <input type="password" class="form-control" placeholder="Senha"
-                      name="senha" minlength="4" maxlength="8" required>
+                      name="senha" id="senha" minlength="4" maxlength="8" required>
                     </div>
                   </div>
                   <!-- fim senha -->
@@ -97,13 +97,13 @@
                         <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
                       </svg>                     
                       </div>
-                        <input type="password" class="form-control" placeholder="Confirme a senha" name="confirmesenha" maxlength="10" required>
+                        <input type="password" class="form-control" placeholder="Confirme a senha" name="confirmesenha" id="confirmarsenha" maxlength="10" required>
                     </div>
                   </div>
                   <!-- fim confirma senha -->
                   
                   <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-2" title="Envia informações para o servidor">Enviar</button>
+                    <button type="submit" id="enviar" class="btn btn-primary mb-2" title="Envia informações para o servidor">Enviar</button>
 
                     <button type="reset" class="btn btn-danger mb-2" title="Remove informações digitadas">Apagar</button>
 
@@ -141,6 +141,10 @@
         </footer>
 
     </main>
+
+    <!-- Meu JS -->
+    <script src="assets/js/script.js"></script>
+
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
